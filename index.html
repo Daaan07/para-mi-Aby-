@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Para Mi Amor ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to right, #ff758c, #ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+  flex-direction: column;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  animation: aparecer 2s ease-in-out;
+}
+
+p {
+  font-size: 1.5em;
+  animation: aparecer 3s ease-in-out;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.corazon {
+  position: absolute;
+  font-size: 20px;
+  animation: flotar 5s linear infinite;
+}
+
+@keyframes flotar {
+  from { top: 100%; }
+  to { top: -10%; }
+}
+</style>
+
+</head>
+<body>
+
+<h1>Te amo más que a mi código ❤️</h1>
+<p>Eres mi algoritmo favorito.</p>
+
+<script>
+function crearCorazon() {
+  const corazon = document.createElement("div");
+  corazon.classList.add("corazon");
+  corazon.innerHTML = "❤️";
+  corazon.style.left = Math.random() * 100 + "vw";
+  corazon.style.fontSize = Math.random() * 30 + 15 + "px";
+  document.body.appendChild(corazon);
+
+  setTimeout(() => {
+    corazon.remove();
+  }, 5000);
+}
+
+setInterval(crearCorazon, 300);
+</script>
+
+</body>
+</html>

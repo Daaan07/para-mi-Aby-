@@ -2,72 +2,96 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Para Mi Amor ❤️</title>
+<title>Felices 9 Meses ❤️</title>
 
 <style>
 body {
   margin: 0;
-  height: 100vh;
+  font-family: Arial, sans-serif;
   background: linear-gradient(to right, #ff758c, #ff7eb3);
-  display: flex;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.seccion {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: none;
   justify-content: center;
   align-items: center;
-  font-family: Arial, sans-serif;
-  color: white;
-  overflow: hidden;
   flex-direction: column;
-  text-align: center;
+  animation: fade 1s ease-in-out;
 }
 
-h1 {
-  font-size: 3em;
-  animation: aparecer 2s ease-in-out;
+.activa {
+  display: flex;
 }
 
-p {
-  font-size: 1.5em;
-  animation: aparecer 3s ease-in-out;
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #ff4e8a;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
 }
 
-@keyframes aparecer {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+button:hover {
+  transform: scale(1.1);
 }
 
-.corazon {
-  position: absolute;
-  font-size: 20px;
-  animation: flotar 5s linear infinite;
+img {
+  max-width: 300px;
+  border-radius: 20px;
+  margin-top: 20px;
 }
 
-@keyframes flotar {
-  from { top: 100%; }
-  to { top: -10%; }
+@keyframes fade {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 </style>
-
 </head>
+
 <body>
 
-<h1>Te amo más que a mi código ❤️</h1>
-<p>Eres mi algoritmo favorito.</p>
+<!-- SECCION 1 -->
+<div class="seccion activa" id="s1">
+  <h1>Felices 9 Meses Mi Amor ❤️</h1>
+  <button onclick="mostrar('s2')">Haz Click 💌</button>
+</div>
+
+<!-- SECCION 2 -->
+<div class="seccion" id="s2">
+  <h2>Nuestra Primera Cita ✨</h2>
+  <p>Desde ese día supe que eras especial.</p>
+  <img src="foto1.jpg" alt="Primera cita">
+  <button onclick="mostrar('s3')">Siguiente Recuerdo 💖</button>
+</div>
+
+<!-- SECCION 3 -->
+<div class="seccion" id="s3">
+  <h2>Un Momento Inolvidable 🌹</h2>
+  <p>Cada recuerdo contigo es mi favorito.</p>
+  <img src="foto2.jpg" alt="Recuerdo especial">
+  <button onclick="mostrar('s1')">Volver al inicio 🔁</button>
+</div>
 
 <script>
-function crearCorazon() {
-  const corazon = document.createElement("div");
-  corazon.classList.add("corazon");
-  corazon.innerHTML = "❤️";
-  corazon.style.left = Math.random() * 100 + "vw";
-  corazon.style.fontSize = Math.random() * 30 + 15 + "px";
-  document.body.appendChild(corazon);
-
-  setTimeout(() => {
-    corazon.remove();
-  }, 5000);
+function mostrar(id) {
+  document.querySelectorAll(".seccion").forEach(sec => {
+    sec.classList.remove("activa");
+  });
+  document.getElementById(id).classList.add("activa");
 }
-
-setInterval(crearCorazon, 300);
 </script>
 
 </body>
 </html>
+
+
